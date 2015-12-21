@@ -25,7 +25,7 @@ static IMP _originalConsoleItemInitIMP = nil;
 static BOOL _hasXcodeColorsInstalled = NO;
 
 
-@interface LSLog() <NSSearchFieldDelegate>
+@interface LSLog()
 
 @property (nonatomic, strong, readwrite) LSLogSettingsWindowController *settingsPanel;
 
@@ -111,12 +111,14 @@ static BOOL _hasXcodeColorsInstalled = NO;
     });
 }
 
-- (void)onFilterFieldDidChange:(NSNotification*)notification {
-    if (![[notification object] isMemberOfClass:[NSSearchField class]]) {
-        return;
-    }
-    
-    NSSearchField *searchField = [notification object];
+#pragma mark - Action
+
+- (void)onSettingsButtonClicked:(NSButton *)sender {
+    self.settingsPanel = [[LSLogSettingsWindowController alloc] initWithWindowNibName:@"LSLogSettingsWindowController"];
+    [self.settingsPanel showWindow:self.settingsPanel];
+}
+
+- (void)onFilterFieldDidEnter:(NSSearchField *)searchField {
     if (![searchField respondsToSelector:@selector(consoleTextView)]) {
         return;
     }
@@ -135,24 +137,13 @@ static BOOL _hasXcodeColorsInstalled = NO;
     }
     
     if ([consoleArea respondsToSelector:@selector(_appendItems:)]) {
-        
         NSMutableDictionary *cacheItems = [[LSLog originalConsoleAreaItemsDict] objectForKey:[consoleArea ls_hash]];
         NSArray *sortedKeys = [[cacheItems allKeys] sortedArrayUsingSelector:@selector(compare:)];
-        NSMutableArray *sortedItems = [NSMutableArray array];
-        for (NSNumber *key in sortedKeys) {
-            [sortedItems addObject:cacheItems[key]];
-        }
+        NSArray *sortedItems = [cacheItems objectsForKeys:sortedKeys notFoundMarker:[NSClassFromString(@"IDEConsoleItem") new]];
         
         [consoleArea performSelector:@selector(_appendItems:) withObject:sortedItems];
     }
 #pragma clang diagnostic pop
-}
-
-#pragma mark - Action
-
-- (void)onSettingsButtonClicked:(NSButton *)sender {
-    self.settingsPanel = [[LSLogSettingsWindowController alloc] initWithWindowNibName:@"LSLogSettingsWindowController"];
-    [self.settingsPanel showWindow:self.settingsPanel];
 }
 
 #pragma mark - Private
@@ -236,12 +227,12 @@ static BOOL _hasXcodeColorsInstalled = NO;
     filterField.tag = LSLogViewTagFilterField;
     filterField.autoresizingMask = NSViewMinXMargin | NSViewMinYMargin;
     filterField.font = [NSFont systemFontOfSize:11.0];
-    filterField.delegate = self;
+    filterField.sendsWholeSearchString = YES;
+    [filterField setTarget:self];
+    [filterField setAction:@selector(onFilterFieldDidEnter:)];
     filterField.consoleTextView = (NSTextView *)consoleTextView;
     [filterField.cell setPlaceholderString:@"Regular Expression"];
     [scopeBarView addSubview:filterField];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFilterFieldDidChange:) name:NSControlTextDidChangeNotification object:nil];
 }
 
 - (NSView *)getViewByClassName:(NSString *)className inContainerView:(NSView *)container {

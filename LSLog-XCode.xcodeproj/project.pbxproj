@@ -13,12 +13,12 @@
 		B15C7B631C197A8300C92958 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15C7B621C197A8300C92958 /* AppKit.framework */; settings = {ASSET_TAGS = (); }; };
 		B15C7B651C197A8300C92958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15C7B641C197A8300C92958 /* Foundation.framework */; settings = {ASSET_TAGS = (); }; };
 		B15C7B691C197A8300C92958 /* LSLog-XCode.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = B15C7B681C197A8300C92958 /* LSLog-XCode.xcscheme */; };
-		B15C7B6C1C197A8300C92958 /* LSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B15C7B6B1C197A8300C92958 /* LSLog.m */; };
 		B15C7B7D1C19873500C92958 /* NSObject+LSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B15C7B7C1C19873500C92958 /* NSObject+LSLog.m */; settings = {ASSET_TAGS = (); }; };
 		B15C7B801C19878C00C92958 /* NSTextStorage+LSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B15C7B7F1C19878C00C92958 /* NSTextStorage+LSLog.m */; settings = {ASSET_TAGS = (); }; };
 		B15C7B831C1A665C00C92958 /* NSObject+LSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B15C7B821C1A665B00C92958 /* NSObject+LSSwizzle.m */; settings = {ASSET_TAGS = (); }; };
-		B15C7B891C1A6F7200C92958 /* LSIDEConsoleArea.m in Sources */ = {isa = PBXBuildFile; fileRef = B15C7B881C1A6F7200C92958 /* LSIDEConsoleArea.m */; settings = {ASSET_TAGS = (); }; };
-		B15C7B8C1C1A726A00C92958 /* LSIDEConsoleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B15C7B8B1C1A726A00C92958 /* LSIDEConsoleItem.m */; settings = {ASSET_TAGS = (); }; };
+		B1944C581C27BB4C006071E7 /* LSIDEConsoleArea.m in Sources */ = {isa = PBXBuildFile; fileRef = B1944C531C27BB4C006071E7 /* LSIDEConsoleArea.m */; settings = {ASSET_TAGS = (); }; };
+		B1944C591C27BB4C006071E7 /* LSIDEConsoleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B1944C551C27BB4C006071E7 /* LSIDEConsoleItem.m */; settings = {ASSET_TAGS = (); }; };
+		B1944C5A1C27BB4C006071E7 /* LSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B1944C571C27BB4C006071E7 /* LSLog.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +31,6 @@
 		B15C7B621C197A8300C92958 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		B15C7B641C197A8300C92958 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		B15C7B681C197A8300C92958 /* LSLog-XCode.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "LSLog-XCode.xcscheme"; path = "LSLog-XCode.xcodeproj/xcshareddata/xcschemes/LSLog-XCode.xcscheme"; sourceTree = SOURCE_ROOT; };
-		B15C7B6A1C197A8300C92958 /* LSLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSLog.h; sourceTree = "<group>"; };
-		B15C7B6B1C197A8300C92958 /* LSLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSLog.m; sourceTree = "<group>"; };
 		B15C7B701C197A8300C92958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B15C7B7B1C19873500C92958 /* NSObject+LSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LSLog.h"; sourceTree = "<group>"; };
 		B15C7B7C1C19873500C92958 /* NSObject+LSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LSLog.m"; sourceTree = "<group>"; };
@@ -40,10 +38,12 @@
 		B15C7B7F1C19878C00C92958 /* NSTextStorage+LSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextStorage+LSLog.m"; sourceTree = "<group>"; };
 		B15C7B811C1A665B00C92958 /* NSObject+LSSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LSSwizzle.h"; sourceTree = "<group>"; };
 		B15C7B821C1A665B00C92958 /* NSObject+LSSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LSSwizzle.m"; sourceTree = "<group>"; };
-		B15C7B871C1A6F7200C92958 /* LSIDEConsoleArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSIDEConsoleArea.h; sourceTree = "<group>"; };
-		B15C7B881C1A6F7200C92958 /* LSIDEConsoleArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSIDEConsoleArea.m; sourceTree = "<group>"; };
-		B15C7B8A1C1A726A00C92958 /* LSIDEConsoleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSIDEConsoleItem.h; sourceTree = "<group>"; };
-		B15C7B8B1C1A726A00C92958 /* LSIDEConsoleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSIDEConsoleItem.m; sourceTree = "<group>"; };
+		B1944C521C27BB4C006071E7 /* LSIDEConsoleArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSIDEConsoleArea.h; sourceTree = "<group>"; };
+		B1944C531C27BB4C006071E7 /* LSIDEConsoleArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSIDEConsoleArea.m; sourceTree = "<group>"; };
+		B1944C541C27BB4C006071E7 /* LSIDEConsoleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSIDEConsoleItem.h; sourceTree = "<group>"; };
+		B1944C551C27BB4C006071E7 /* LSIDEConsoleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSIDEConsoleItem.m; sourceTree = "<group>"; };
+		B1944C561C27BB4C006071E7 /* LSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSLog.h; sourceTree = "<group>"; };
+		B1944C571C27BB4C006071E7 /* LSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSLog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +102,7 @@
 			children = (
 				B136427F1C1AC81F00D82640 /* Settings */,
 				B15C7B7A1C19873500C92958 /* Category */,
-				B15C7B6A1C197A8300C92958 /* LSLog.h */,
-				B15C7B6B1C197A8300C92958 /* LSLog.m */,
-				B15C7B871C1A6F7200C92958 /* LSIDEConsoleArea.h */,
-				B15C7B881C1A6F7200C92958 /* LSIDEConsoleArea.m */,
-				B15C7B8A1C1A726A00C92958 /* LSIDEConsoleItem.h */,
-				B15C7B8B1C1A726A00C92958 /* LSIDEConsoleItem.m */,
+				B1944C511C27BB4C006071E7 /* LSLog */,
 				B15C7B671C197A8300C92958 /* Supporting Files */,
 			);
 			path = "LSLog-XCode";
@@ -133,6 +128,19 @@
 				B15C7B821C1A665B00C92958 /* NSObject+LSSwizzle.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		B1944C511C27BB4C006071E7 /* LSLog */ = {
+			isa = PBXGroup;
+			children = (
+				B1944C521C27BB4C006071E7 /* LSIDEConsoleArea.h */,
+				B1944C531C27BB4C006071E7 /* LSIDEConsoleArea.m */,
+				B1944C541C27BB4C006071E7 /* LSIDEConsoleItem.h */,
+				B1944C551C27BB4C006071E7 /* LSIDEConsoleItem.m */,
+				B1944C561C27BB4C006071E7 /* LSLog.h */,
+				B1944C571C27BB4C006071E7 /* LSLog.m */,
+			);
+			path = LSLog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,10 +211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B15C7B8C1C1A726A00C92958 /* LSIDEConsoleItem.m in Sources */,
-				B15C7B891C1A6F7200C92958 /* LSIDEConsoleArea.m in Sources */,
+				B1944C591C27BB4C006071E7 /* LSIDEConsoleItem.m in Sources */,
+				B1944C581C27BB4C006071E7 /* LSIDEConsoleArea.m in Sources */,
 				B15C7B7D1C19873500C92958 /* NSObject+LSLog.m in Sources */,
-				B15C7B6C1C197A8300C92958 /* LSLog.m in Sources */,
+				B1944C5A1C27BB4C006071E7 /* LSLog.m in Sources */,
 				B13642821C1AC83700D82640 /* LSLogSettings.m in Sources */,
 				B136428B1C1D83E600D82640 /* LSLogSettingsWindowController.m in Sources */,
 				B15C7B801C19878C00C92958 /* NSTextStorage+LSLog.m in Sources */,

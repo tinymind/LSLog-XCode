@@ -47,14 +47,14 @@ extern NSMutableArray *originalConsoleItems;
 + (instancetype)sharedPlugin;
 
 /**
- *  NSMutableDictionary<Obj : NSMutableDictionary<@timestamp, item>>
+ *  NSMutableDictionary<Obj : NSMutableDictionary<@timestamp, IDEConsoleItem>>
  *
  *  @return Cached console items
  */
 + (NSMutableDictionary *)originalConsoleAreaItemsDict;
++ (BOOL)hasXcodeColorsInstalled;
 + (IMP)originalShouldAppendItemIMP;
 + (IMP)originalClearTextIMP;
 + (IMP)originalConsoleItemInitIMP;
-+ (BOOL)hasXcodeColorsInstalled;
 
 @end

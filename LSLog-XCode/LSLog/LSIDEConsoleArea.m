@@ -30,16 +30,20 @@
         [cachedItems setObject:obj forKey:@([obj timestamp])];
     }
     
-    NSInteger filterMode = [[self valueForKey:@"filterMode"] intValue];
-    BOOL shouldShowLogLevel = YES;
     BOOL isForcedShow = [[obj valueForKey:@"input"] boolValue]
-                    || [[obj valueForKey:@"prompt"] boolValue]
-                    || [[obj valueForKey:@"outputRequestedByUser"] boolValue]
-                    || [[obj valueForKey:@"adaptorType"] hasSuffix:@".Debugger"];
+                        || [[obj valueForKey:@"prompt"] boolValue]
+                        || [[obj valueForKey:@"outputRequestedByUser"] boolValue]
+                        || [[obj valueForKey:@"adaptorType"] hasSuffix:@".Debugger"];
+    if (isForcedShow) {
+        return YES;
+    }
+    
+    NSInteger filterMode = [[self valueForKey:@"filterMode"] intValue];
+    BOOL shouldShowLogLevel = NO;
     if (filterMode >= LSLogLevelVerbose) {
-        shouldShowLogLevel = [obj logLevel] >= filterMode || isForcedShow;
+        shouldShowLogLevel = [obj logLevel] >= filterMode;
     } else {
-        shouldShowLogLevel = [LSLog.originalShouldAppendItemIMP(self, _cmd, obj) boolValue];
+        shouldShowLogLevel = [[LSLog originalShouldAppendItemIMP](self, _cmd, obj) boolValue];
     }
     
     if (!shouldShowLogLevel) {
@@ -54,11 +58,11 @@
     // Match with regex
     NSError *error;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:filterString
-                                                          options:(NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators)
-                                                            error:&error];
+                                                                           options:(NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators)
+                                                                             error:&error];
     NSString *content = [obj content];
     NSArray *matches = [regex matchesInString:content options:0 range:NSMakeRange(0, content.length)];
-    if ([matches count] > 0  || isForcedShow) {
+    if ([matches count] > 0) {
         return YES;
     }
     
@@ -66,7 +70,7 @@
 }
 
 - (void)_clearText {
-    LSLog.originalClearTextIMP(self, _cmd);
+    [LSLog originalClearTextIMP](self, _cmd);
     [[LSLog originalConsoleAreaItemsDict] removeObjectForKey:[self ls_hash]];
 }
 
