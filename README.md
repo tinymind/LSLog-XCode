@@ -23,7 +23,7 @@ An XCode plugin to filter and colorize the XCode debugging console. It's nativel
 
 ## Installation
 
-* Install via [Alcatraz](https://github.com/alcatraz/Alcatraz) (Coming soon...) 
+* Install via [Alcatraz](https://github.com/alcatraz/Alcatraz)
 * Download this project, build & run, and **Restart XCode**.
 
 ## Uninstall
