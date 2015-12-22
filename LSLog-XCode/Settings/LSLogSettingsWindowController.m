@@ -9,7 +9,7 @@
 #import "LSLogSettingsWindowController.h"
 #import "LSLogSettings.h"
 
-@interface LSLogSettingsWindowController () <NSTextFieldDelegate>
+@interface LSLogSettingsWindowController ()
 
 @property (weak) IBOutlet NSTextField *errorTextField;
 @property (weak) IBOutlet NSTextField *warnTextField;
@@ -60,18 +60,15 @@
 //    }
 }
 
-#pragma mark - Delegate
-
-- (void)controlTextDidChange:(NSNotification *)notification {
-    NSTextField *textField = [notification object];
+- (IBAction)onTextFieldDidChange:(NSTextField *)textField {
     if(textField == self.errorTextField) {
         [[LSLogSettings defaultSettings] setLogLevelPrefixError:textField.stringValue];
     } else if(textField == self.warnTextField) {
         [[LSLogSettings defaultSettings] setLogLevelPrefixWarn:textField.stringValue];
-    } else if(textField == self.verboseTextField) {
-        [[LSLogSettings defaultSettings] setLogLevelPrefixVerbose:textField.stringValue];
     } else if(textField == self.infoTextField) {
         [[LSLogSettings defaultSettings] setLogLevelPrefixInfo:textField.stringValue];
+    } else if(textField == self.verboseTextField) {
+        [[LSLogSettings defaultSettings] setLogLevelPrefixVerbose:textField.stringValue];
     }
 }
 

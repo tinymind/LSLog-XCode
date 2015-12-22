@@ -86,7 +86,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <outlet property="delegate" destination="F0z-JX-Cv5" id="tUQ-EP-0Yg"/>
+                            <action selector="onTextFieldDidChange:" target="-2" id="3nr-f4-iDe"/>
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYb-zL-LrY">
@@ -97,7 +97,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <outlet property="delegate" destination="F0z-JX-Cv5" id="oLi-sC-1VZ"/>
+                            <action selector="onTextFieldDidChange:" target="-2" id="71s-1h-zWa"/>
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1SZ-hs-YbQ">
@@ -108,7 +108,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <outlet property="delegate" destination="F0z-JX-Cv5" id="Plc-0e-iRO"/>
+                            <action selector="onTextFieldDidChange:" target="-2" id="lHd-ic-IHR"/>
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-9D-dxk">
@@ -119,7 +119,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <outlet property="delegate" destination="F0z-JX-Cv5" id="y3h-Y0-d9x"/>
+                            <action selector="onTextFieldDidChange:" target="-2" id="0nV-jM-4Is"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8MB-L9-XQh">
