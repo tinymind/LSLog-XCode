@@ -72,6 +72,10 @@ static const void *kLSLogLevelKey;
 }
 
 - (void)ls_updateItemAttribute:(id)item {
+    if (![LSLogSettings defaultSettings].enableColoring) {
+        return;
+    }
+    
     NSString *logText = [item valueForKey:@"content"];
     if (!logText.length) {
         return;

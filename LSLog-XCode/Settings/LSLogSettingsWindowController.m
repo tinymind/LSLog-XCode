@@ -16,6 +16,8 @@
 @property (weak) IBOutlet NSTextField *infoTextField;
 @property (weak) IBOutlet NSTextField *verboseTextField;
 
+@property (weak) IBOutlet NSButton *enableColoringButton;
+
 @property (weak) IBOutlet NSColorWell *fgErrorColorWell;
 @property (weak) IBOutlet NSColorWell *fgWarnColorWell;
 @property (weak) IBOutlet NSColorWell *fgInfoColorWell;
@@ -72,6 +74,11 @@
     }
 }
 
+- (IBAction)onEnableColoringButtonClicked:(NSButton *)sender {
+    [[LSLogSettings defaultSettings] setEnableColoring:sender.state == NSOnState];
+    [self updateColorWellState:[LSLogSettings defaultSettings].enableColoring];
+}
+
 #pragma mark - Private
 
 - (void)defaultInit {
@@ -79,6 +86,9 @@
     self.warnTextField.stringValue = [LSLogSettings defaultSettings].logLevelPrefixWarn;
     self.infoTextField.stringValue = [LSLogSettings defaultSettings].logLevelPrefixInfo;
     self.verboseTextField.stringValue = [LSLogSettings defaultSettings].logLevelPrefixVerbose;
+    
+    self.enableColoringButton.state = [LSLogSettings defaultSettings].enableColoring ? NSOnState : NSOffState;
+    [self updateColorWellState:[LSLogSettings defaultSettings].enableColoring];
     
     self.fgErrorColorWell.color = [LSLogSettings defaultSettings].fgColorError;
     self.fgWarnColorWell.color = [LSLogSettings defaultSettings].fgColorWarn;
@@ -89,6 +99,18 @@
 //    self.bgWarnColorWell.color = [LSLogSettings defaultSettings].bgColorWarn;
 //    self.bgInfoColorWell.color = [LSLogSettings defaultSettings].bgColorInfo;
 //    self.bgVerboseColorWell.color = [LSLogSettings defaultSettings].bgColorVerbose;
+}
+
+- (void)updateColorWellState:(BOOL)enable {
+    self.fgErrorColorWell.enabled = enable;
+    self.fgWarnColorWell.enabled = enable;
+    self.fgInfoColorWell.enabled = enable;
+    self.fgVerboseColorWell.enabled = enable;
+
+//    self.bgErrorColorWell.enabled = enable;
+//    self.bgWarnColorWell.enabled = enable;
+//    self.bgInfoColorWell.enabled = enable;
+//    self.bgVerboseColorWell.enabled = enable;
 }
 
 @end

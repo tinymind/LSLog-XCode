@@ -14,6 +14,8 @@ NSString *kKeyLogLevelPrefixWarn = @"com.lessfun.LSLog.KeyLogLevelPrefixWarn";
 NSString *kKeyLogLevelPrefixInfo = @"com.lessfun.LSLog.KeyLogLevelPrefixInfo";
 NSString *kKeyLogLevelPrefixVerbose = @"com.lessfun.LSLog.KeyLogLevelPrefixVerbose";
 
+NSString *kKeyEnableColoring = @"com.lessfun.LSLog.KeyEnableColoring";
+
 NSString *kKeyFgColorError = @"com.lessfun.LSLog.KeyFgColorError";
 NSString *kKeyFgColorWarn = @"com.lessfun.LSLog.KeyFgColorWarn";
 NSString *kKeyFgColorInfo = @"com.lessfun.LSLog.KeyFgColorInfo";
@@ -23,6 +25,12 @@ NSString *kKeyFgColorVerbose = @"com.lessfun.LSLog.KeyFgColorVerbose";
 //NSString *kKeyBgColorWarn = @"com.lessfun.LSLog.KeyBgColorWarn";
 //NSString *kKeyBgColorInfo = @"com.lessfun.LSLog.KeyBgColorInfo";
 //NSString *kKeyBgColorVerbose = @"com.lessfun.LSLog.KeyBgColorVerbose";
+
+@interface LSLogSettings()
+
+@property (strong, nonatomic) NSNumber *enableColoringValue;
+
+@end
 
 @implementation LSLogSettings
 
@@ -134,6 +142,19 @@ NSString *kKeyFgColorVerbose = @"com.lessfun.LSLog.KeyFgColorVerbose";
     }
     _logLevelPrefixInfo = logLevelPrefixInfo;
     [self setConfig:logLevelPrefixInfo forKey:kKeyLogLevelPrefixInfo];
+}
+
+- (BOOL)enableColoring {
+    self.enableColoringValue = [self getConfigForKey:kKeyEnableColoring];
+    if (!self.enableColoringValue) {
+        [self setEnableColoring:YES];
+    }
+    return [self.enableColoringValue boolValue];
+}
+
+- (void)setEnableColoring:(BOOL)enableColoring {
+    self.enableColoringValue = @(enableColoring);
+    [self setConfig:self.enableColoringValue forKey:kKeyEnableColoring];
 }
 
 - (NSColor *)fgColorError {
