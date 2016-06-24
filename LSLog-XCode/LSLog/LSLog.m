@@ -219,7 +219,7 @@ static BOOL _hasXcodeColorsInstalled = NO;
     }
     [filterButton selectItemAtIndex:selectedItem];
     
-    NSRect frame = LS_RECT_ADJUST(trashButton.frame, -70, -4, 50, 4);
+    NSRect frame = LS_RECT_ADJUST(trashButton.frame, -74, -4, 54, 4);
 
     NSButton *settingsButton = [[NSButton alloc] initWithFrame:frame];
     settingsButton.tag = LSLogViewTagSettingsButton;
@@ -227,12 +227,12 @@ static BOOL _hasXcodeColorsInstalled = NO;
     settingsButton.autoresizingMask = NSViewMinXMargin | NSViewMinYMargin;
     [settingsButton setButtonType:NSToggleButton];
     [settingsButton setBezelStyle:NSRoundedBezelStyle];
-    [settingsButton setTitle:@"⚙ LSLog"];
+    [settingsButton setTitle:@"⚙LSLog"];
     [settingsButton setTarget:self];
     [settingsButton setAction:@selector(onSettingsButtonClicked:)];
     [scopeBarView addSubview:settingsButton];
     
-    frame = LS_RECT_ADJUST(frame, -220, 4, 150, -4);
+    frame = LS_RECT_ADJUST(frame, -224, 4, 150, -4);
     
     NSSearchField *filterField = [[NSSearchField alloc] initWithFrame:frame];
     filterField.tag = LSLogViewTagFilterField;
