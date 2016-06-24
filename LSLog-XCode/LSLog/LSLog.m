@@ -156,6 +156,17 @@ static BOOL _hasXcodeColorsInstalled = NO;
     }
     
     NSView *consoleParentView = [self getParantViewByClassName:@"DVTControllerContentView" ofView:consoleTextView];
+    
+    // XCode 7.3 or later
+    if (!consoleParentView) {
+        consoleParentView = [self getParantViewByClassName:@"DVTControllerContentView_ControlledBy_IDEConsoleArea" ofView:consoleTextView];
+        
+        if (!consoleParentView) {
+            NSLog(@"[LSLog:addFilterViews] DVTControllerContentView or DVTControllerContentView_ControlledBy_IDEConsoleArea not found");
+            return;
+        }
+    }
+    
     NSView *scopeBarView = [self getViewByClassName:@"DVTScopeBarView" inContainerView:consoleParentView];
     if (!scopeBarView) {
         NSLog(@"[LSLog:addFilterViews] DVTScopeBarView not found");
@@ -216,7 +227,7 @@ static BOOL _hasXcodeColorsInstalled = NO;
     settingsButton.autoresizingMask = NSViewMinXMargin | NSViewMinYMargin;
     [settingsButton setButtonType:NSToggleButton];
     [settingsButton setBezelStyle:NSRoundedBezelStyle];
-    [settingsButton setTitle:@"Settings"];
+    [settingsButton setTitle:@"⚙ LSLog"];
     [settingsButton setTarget:self];
     [settingsButton setAction:@selector(onSettingsButtonClicked:)];
     [scopeBarView addSubview:settingsButton];
