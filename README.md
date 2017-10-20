@@ -1,5 +1,5 @@
 # LSLog-XCode
-An XCode plugin to filter and colorize the XCode debugging console. It's natively supports XcodeColors. You can customize the log level prefix and log text color.
+An Xcode plugin to filter and colorize the Xcode debugging console. It's natively supports XcodeColors. You can customize the log level prefix and log text color.
 
 ## Example
 
@@ -24,7 +24,7 @@ An XCode plugin to filter and colorize the XCode debugging console. It's nativel
 ## Installation
 
 * Install via [Alcatraz](https://github.com/alcatraz/Alcatraz)
-* Download this project, build & run, and **Restart XCode**.
+* Download this project, build & run, and **Restart Xcode**.
 
 ## Uninstall
 
@@ -32,7 +32,7 @@ LSLog-XCode.xcplugin should be saved in `~/Library/Application Support/Developer
 
 ## Requirements
 
-XCode 4, 5, 6 & 7.
+Xcode 4, 5, 6 & 7.
 
 ## Thanks
 
